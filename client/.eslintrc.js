@@ -22,5 +22,6 @@ module.exports = {
     'react/prop-types': 0,
     'default-param-last': 0,
     'import/prefer-default-export': 0,
+    'linebreak-style': ['error', 'windows'],
   },
 };

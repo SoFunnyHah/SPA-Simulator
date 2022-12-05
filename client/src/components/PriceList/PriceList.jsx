@@ -2,28 +2,29 @@ import React, { useState } from 'react';
 import { Col, Row } from 'reactstrap';
 
 export default function PriceList({
-  buyPrice, sellPrice, select, time, setHistory,
+  buyPrice, sellPrice, select, setHistory,
 }) {
   const [form, setForm] = useState({
     method: '',
     price: '',
     selected: '',
+    volume: 0,
   });
-  const [input, setInput] = useState(0);
+  // const [input, setInput] = useState(0);
 
   const clickHandler = (obj) => {
     setForm(() => ({ ...obj, selected: select }));
   };
   console.log('form', form);
   const changeHandler = (e) => {
-    setInput((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    console.log('changed:', input);
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    // console.log('changed:', input);
   };
   const submitHandler = () => {
-    console.log('INPUT IS:', input);
+    // console.log('INPUT IS:', input);
     setHistory((prev) => ([...prev,
       {
-        volume: input.volume, price: form.price, selected: form.selected, method: form.method, time,
+        ...form, time: new Date().toLocaleTimeString(),
       },
     ]));
   };

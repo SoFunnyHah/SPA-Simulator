@@ -2,7 +2,7 @@ import React from 'react';
 import HistoryRow from '../HistoryRow/HistoryRow';
 
 export default function ArchivePage({ history }) {
-  // console.log(history);
+  console.log(history);
   return (
     <table className="table">
       <thead>
@@ -15,9 +15,9 @@ export default function ArchivePage({ history }) {
         </tr>
       </thead>
       <tbody>
-        {history?.map((el) => (
+        {history?.map((el, i) => (
           <HistoryRow
-            key={el.id}
+            key={i}
             method={el.method}
             price={el.price}
             selected={el.selected}

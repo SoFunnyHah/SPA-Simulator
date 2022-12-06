@@ -1,7 +1,7 @@
 # SPA-Simulator
 
 How to use:
-
+<br/>
 1. Git clone repositorie
 <br/>
 Terminal vs code:

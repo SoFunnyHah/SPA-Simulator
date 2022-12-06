@@ -1,7 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import HistoryRow from '../HistoryRow/HistoryRow';
 
-export default function ArchivePage({ history }) {
+export default function ArchivePage() {
+  const history = useSelector((state) => state.history);
   // console.log(history);
   return (
     <table className="table">

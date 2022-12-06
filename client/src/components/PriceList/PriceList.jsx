@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Col, Row } from 'reactstrap';
+import { setHistory } from '../../redux/actions/historyActions';
 
 export default function PriceList({
-  select, setHistory,
+  select,
 }) {
   const [form, setForm] = useState({
     method: '',
@@ -11,8 +12,6 @@ export default function PriceList({
     selected: '',
     volume: 0,
   });
-  // const [input, setInput] = useState(0);
-
   //
   const buyPrice = useSelector((state) => state.buyPrice);
   const sellPrice = useSelector((state) => state.sellPrice);
@@ -25,12 +24,17 @@ export default function PriceList({
   const changeHandler = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
+  const dispatch = useDispatch();
+  // const submitHandler = () => {
+  //   setHistory((prev) => ([...prev,
+  //     {
+  //       ...form, time: new Date().toLocaleTimeString(),
+  //     },
+  //   ]));
+  // };
   const submitHandler = () => {
-    setHistory((prev) => ([...prev,
-      {
-        ...form, time: new Date().toLocaleTimeString(),
-      },
-    ]));
+    dispatch(setHistory({ ...form, time: new Date().toLocaleTimeString() }));
   };
   return (
     <>

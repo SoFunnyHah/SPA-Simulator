@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import buyReducer from './reducers/buyReducer';
 import historyReducer from './reducers/historyReducer';
+import selectReducer from './reducers/selectReducer';
 import sellReducer from './reducers/sellReducer';
 
 export default configureStore({
@@ -8,5 +9,6 @@ export default configureStore({
     buyPrice: buyReducer,
     sellPrice: sellReducer,
     history: historyReducer,
+    select: selectReducer,
   },
 });

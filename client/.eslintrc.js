@@ -22,5 +22,6 @@ module.exports = {
     'react/prop-types': 0,
     'default-param-last': 0,
     'import/prefer-default-export': 0,
+    'react/no-array-index-key': 0,
   },
 };

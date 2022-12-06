@@ -4,3 +4,6 @@ export const ADD_SELL_PRICE = 'ADD_SELL_PRICE';
 
 // history list
 export const ADD_HISTORY = 'ADD_HISTORY';
+
+// selector
+export const ADD_SELECTION = 'ADD_SELECTION';

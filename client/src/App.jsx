@@ -6,7 +6,6 @@ import TradingPage from './components/TradingPage';
 import ArchivePage from './components/ArchivePage';
 
 function App() {
-  // const [history, setHistory] = useState([]);
   return (
     <Container>
       <MyNavbar />

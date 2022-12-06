@@ -4,7 +4,6 @@ import HistoryRow from '../HistoryRow/HistoryRow';
 
 export default function ArchivePage() {
   const history = useSelector((state) => state.history);
-  // console.log(history);
   return (
     <table className="table">
       <thead>

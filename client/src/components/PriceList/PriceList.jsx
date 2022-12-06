@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Col, Row } from 'reactstrap';
 
 export default function PriceList({
-  buyPrice, sellPrice, select, setHistory,
+  select, setHistory,
 }) {
   const [form, setForm] = useState({
     method: '',
@@ -11,6 +12,11 @@ export default function PriceList({
     volume: 0,
   });
   // const [input, setInput] = useState(0);
+
+  //
+  const buyPrice = useSelector((state) => state.buyPrice);
+  const sellPrice = useSelector((state) => state.sellPrice);
+  //
 
   const clickHandler = (obj) => {
     setForm(() => ({ ...obj, selected: select }));

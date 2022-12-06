@@ -5,22 +5,29 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setBuyPrice, setSellPrice } from '../../redux/actions/priceActions';
 
-export default function MySelector({ setBuyPrice, setSellPrice, setSelect }) {
+export default function MySelector({ setSelect }) {
   const [state, setState] = React.useState('');
   const handleChange = (event) => {
     setState(event.target.value);
   };
 
   const [refresh, setRefresh] = useState();
+  //
+  const dispatch = useDispatch();
+  //
   const selectHandler = (currancy) => {
     console.log('CLICKED');
     console.log('currancy', currancy);
-    setBuyPrice(currancy);
-    setSellPrice(currancy);
+    dispatch(setBuyPrice(currancy));
+    dispatch(setSellPrice(currancy));
     setRefresh(() => setTimeout(function func() {
-      setBuyPrice((Math.random() * (currancy - currancy * 0.98) + (currancy * 0.98)).toFixed(4));
-      setSellPrice((Math.random() * (currancy - currancy * 0.98) + (currancy * 0.98)).toFixed(4));
+      //
+      dispatch(setBuyPrice(currancy));
+      dispatch(setSellPrice(currancy));
+      //
       console.log('with selected', currancy);
       setRefresh(() => setTimeout(func, 5000));
     }, 5000));

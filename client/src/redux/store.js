@@ -1,13 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import createSagaMiddleware from 'redux-saga';
-import postsReducer from './reducers/postsReducer';
-// import postSagaWatcher from './sagas/postsSaga';
-
-const sagaMiddleware = createSagaMiddleware();
+import buyReducer from './reducers/buyReducer';
+import sellReducer from './reducers/sellReducer';
 
 export default configureStore({
   reducer: {
-    posts: postsReducer,
+    buyPrice: buyReducer,
+    sellPrice: sellReducer,
   },
-  middleware: (mid) => [...mid(), sagaMiddleware],
 });

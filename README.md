@@ -1,6 +1,7 @@
 # SPA-Simulator
 
 How to use:
+DONT FORGET TO FORK REPOSITORIE FIRST
 <br/>
 1. Git clone repositorie
 <br/>

@@ -15,9 +15,9 @@ export default function ArchivePage({ history }) {
         </tr>
       </thead>
       <tbody>
-        {history?.map((el) => (
+        {history?.map((el, index) => (
           <HistoryRow
-            key={el.id}
+            key={index}
             method={el.method}
             price={el.price}
             selected={el.selected}

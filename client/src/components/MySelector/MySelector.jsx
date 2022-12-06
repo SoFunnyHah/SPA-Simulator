@@ -4,12 +4,12 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function MySelector({ setBuyPrice, setSellPrice, setSelect }) {
-  const [age, setAge] = React.useState('');
+  const [state, setState] = React.useState('');
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setState(event.target.value);
   };
 
   const [refresh, setRefresh] = useState();
@@ -18,13 +18,14 @@ export default function MySelector({ setBuyPrice, setSellPrice, setSelect }) {
     console.log('currancy', currancy);
     setBuyPrice(currancy);
     setSellPrice(currancy);
-    setRefresh(setTimeout(function func() {
+    setRefresh(() => setTimeout(function func() {
       setBuyPrice((Math.random() * (currancy - currancy * 0.98) + (currancy * 0.98)).toFixed(4));
       setSellPrice((Math.random() * (currancy - currancy * 0.98) + (currancy * 0.98)).toFixed(4));
       console.log('with selected', currancy);
-      setRefresh(setTimeout(func, 5000));
+      setRefresh(() => setTimeout(func, 5000));
     }, 5000));
   };
+  useEffect(() => () => clearTimeout(refresh), []);
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
@@ -32,7 +33,7 @@ export default function MySelector({ setBuyPrice, setSellPrice, setSelect }) {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          value={state}
           label=""
           onChange={handleChange}
         >

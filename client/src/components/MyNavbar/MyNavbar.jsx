@@ -7,24 +7,14 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  // NavbarText,
   Row,
   Col,
-  // Button,
 } from 'reactstrap';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { logoutUserAsync } from '../../redux/actions/userActions';
 
 function MyNavbar() {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggle = () => setIsOpen(!isOpen);
-
-  // const dispatch = useDispatch();
-  // const user = useSelector((state) => state.user);
-
   const links = ['Trading', 'Archive'];
-
   return (
     <Row>
       <Col>
@@ -38,13 +28,7 @@ function MyNavbar() {
                   <NavLink to={`/${link}`}>{link}</NavLink>
                 </NavItem>
               ))}
-              {/* {user.id && (
-              <NavItem key="logout">
-                <Button onClick={() => dispatch(logoutUserAsync())}>Logout</Button>
-              </NavItem>
-              )} */}
             </Nav>
-            {/* <NavbarText>{user.name ? `Hello, ${user.name}` : 'Not authed'}</NavbarText> */}
           </Collapse>
         </Navbar>
       </Col>

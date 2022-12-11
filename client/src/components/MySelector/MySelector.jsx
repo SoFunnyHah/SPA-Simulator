@@ -16,18 +16,13 @@ export default function MySelector() {
   };
 
   const [refresh, setRefresh] = useState();
-  //
   const dispatch = useDispatch();
-  //
   const selectHandler = (currancy) => {
-    console.log('CLICKED');
-    console.log('currancy', currancy);
     dispatch(setBuyPrice(currancy));
     dispatch(setSellPrice(currancy));
     setRefresh(() => setTimeout(function func() {
       dispatch(setBuyPrice(currancy));
       dispatch(setSellPrice(currancy));
-      console.log('with selected', currancy);
       setRefresh(() => setTimeout(func, 5000));
     }, 5000));
   };

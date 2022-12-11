@@ -14,12 +14,10 @@ export default function PriceList() {
   const buyPrice = useSelector((state) => state.buyPrice);
   const sellPrice = useSelector((state) => state.sellPrice);
   const select = useSelector((state) => state.select);
-  console.log('select:', select);
 
   const clickHandler = (obj) => {
     setForm(() => ({ ...obj, selected: select }));
   };
-  console.log('form', form);
   const changeHandler = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
